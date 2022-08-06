@@ -1,5 +1,3 @@
-
-
 import requests, json
 from bot import bot
 import time

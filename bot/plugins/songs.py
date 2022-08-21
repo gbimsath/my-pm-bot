@@ -1,5 +1,6 @@
 import os
 from bot import bot
+from pyrogram import enums
 from pyrogram import idle, filters
 import requests
 import yt_dlp as youtube_dl
@@ -45,6 +46,8 @@ def song(client, message):
         print(str(e))
         return
     m.edit("📥 Downloading...")
+    await bot.send_chat_action(chat_id, enums.ChatAction.UPLOAD_AUDIO)
+
     try:
         with youtube_dl.YoutubeDL(ydl_opts) as ydl:
             info_dict = ydl.extract_info(link, download=False)

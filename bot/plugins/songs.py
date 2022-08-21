@@ -62,8 +62,7 @@ def song(client, message):
         secmul, dur, dur_arr = 1, 0, duration.split(':')
         for i in range(len(dur_arr)-1, -1, -1):
             dur += (int(dur_arr[i]) * secmul)
-            secmul *= 60
-        bot.send_chat_action(__, enums.ChatAction.UPLOAD_AUDIO)    
+            secmul *= 60    
         s = message.reply_audio(audio_file, caption=rep, performer=performer, thumb=thumb_name, title=title, duration=dur)
         m.delete()
     except Exception as e:

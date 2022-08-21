@@ -23,7 +23,7 @@ async def on_off_antiarab(_, message: Message):
     f= message.text
     s=f.replace('/logo ' ,'')
     text=s.replace(' ', '%20')
-    lol = (f"https://single-developers.up.railway.app/logo?name={text}")
+    lol = (f"https://api.single-developers.software/logo?name={text}")
     photo = wget.download(lol, 'pythonlogo.png')
     await m.delete()
     caption = f"""
@@ -34,7 +34,6 @@ async def on_off_antiarab(_, message: Message):
 🍀 **𝙋𝙤𝙬𝙚𝙧𝙙 𝘽𝙮**  : **[• Gavesh Bimsath 🇱🇰 • ™](https://t.me/gbimsath)**
 ◇───────────────◇️  
 """
-    await _.send_chat_action(message.chat.id, enums.ChatAction.UPLOAD_PHOTO)
     time.sleep(2)
     await message.reply_photo(photo=photo, caption=caption.format(message.from_user.mention),
                  reply_markup=InlineKeyboardMarkup(

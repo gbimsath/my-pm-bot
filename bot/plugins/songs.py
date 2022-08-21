@@ -56,7 +56,7 @@ def song(client, message):
 🏷 **Title:** [{title}]({link})
 ⏳ **Duration:** `{duration}`
 👀 **Views:** `{views}` 
-👤**Requested By**: {message.from_user.mention()}
+👤**Requested By**: ||{message.from_user.mention()}||
 📤 **Uploaded By: [Gavesh Bimsath 🇱🇰](https://t.me/gbimsath)**
         """)
         secmul, dur, dur_arr = 1, 0, duration.split(':')

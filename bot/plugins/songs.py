@@ -46,8 +46,7 @@ def song(client, message):
         print(str(e))
         return
     m.edit("📥 Downloading...")
-    await bot.send_chat_action(chat_id, enums.ChatAction.UPLOAD_AUDIO)
-
+    
     try:
         with youtube_dl.YoutubeDL(ydl_opts) as ydl:
             info_dict = ydl.extract_info(link, download=False)
@@ -64,6 +63,7 @@ def song(client, message):
         for i in range(len(dur_arr)-1, -1, -1):
             dur += (int(dur_arr[i]) * secmul)
             secmul *= 60
+        await bot.send_chat_action(chat_id, enums.ChatAction.UPLOAD_AUDIO)    
         s = message.reply_audio(audio_file, caption=rep, performer=performer, thumb=thumb_name, title=title, duration=dur)
         m.delete()
     except Exception as e:

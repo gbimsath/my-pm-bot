@@ -86,8 +86,7 @@ async def covidg(_, query: CallbackQuery):
 
   # ---------command---------
 @bot.on_message(filters.regex("covid") & ~filters.forwarded)
-async def covid(_, message):
-    await _.send_chat_action(chat_id, enums.ChatAction.TYPING)        
+async def covid(_, message): 
     await message.reply_photo(photo="https://telegra.ph/file/53f7b5666c2eb6a302e8f.jpg", 
                               caption=COVIDLOCAL,
                               reply_markup=REPLY_MARKUPL,
